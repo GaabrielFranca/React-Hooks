@@ -1,28 +1,20 @@
 import React from "react";
-import useFetch from "./UseFetch";
+import LocalStorege from "./LocalStorage";
+
 const App = () => {
-  const { request, dados, loading, error } = useFetch();
+  const [produto, setProduto] = LocalStorege("produto", "");
 
-  React.useEffect(() => {
-    request("https://jsonplaceholder.typicode.com/posts");
-  }, [request]);
+  function handleClick({ target }) {
+    return setProduto(target.innerText);
+  }
 
-  if (error) return <p>{error}</p>;
-  if (loading) return <p>Carregando...</p>;
-  if (dados)
-    return (
-      <>
-        <div>
-          {dados.map(({ id, title }) => (
-            <ul key={id}>
-              <li key={id}>{title}</li>
-            </ul>
-          ))}
-          ''
-        </div>
-      </>
-    );
-  else return null;
+  return (
+    <>
+      <h1>Preferido:{produto} </h1>
+      <button onClick={handleClick}>notebook</button>
+      <button onClick={handleClick}>smartphone</button>
+    </>
+  );
 };
 
 export default App;
