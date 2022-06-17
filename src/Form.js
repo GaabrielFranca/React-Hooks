@@ -18,14 +18,23 @@ const inputFields = [
     type: "password",
     label: "password",
   },
+
+  {
+    id: "telephone",
+    type: "number",
+    label: "telephone",
+  },
 ];
 
 const Form = () => {
-  const [form, setForm] = React.useState({
-    name: "",
-    email: "",
-    senha: "",
-  });
+  const [form, setForm] = React.useState(
+    inputFields.reduce((acc, fild) => {
+      return {
+        ...acc,
+        [fild.id]: "",
+      };
+    }, {})
+  );
   const [response, setResponse] = React.useState(null);
 
   function handleChange({ target }) {
