@@ -1,0 +1,7 @@
+input {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}

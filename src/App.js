@@ -1,18 +1,9 @@
 import React from "react";
-import LocalStorege from "./LocalStorage";
-
+import Form from "./Form";
 const App = () => {
-  const [produto, setProduto] = LocalStorege("produto", "");
-
-  function handleClick({ target }) {
-    return setProduto(target.innerText);
-  }
-
   return (
     <>
-      <h1>Preferido:{produto} </h1>
-      <button onClick={handleClick}>notebook</button>
-      <button onClick={handleClick}>smartphone</button>
+      <Form></Form>
     </>
   );
 };
