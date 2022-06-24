@@ -1,18 +1,31 @@
 import React from "react";
 
-const Input = ({ label, id, setValue, ...props }) => {
+const Input = ({
+  id,
+  label,
+  onChange,
+  value,
+  type,
+  onBlur,
+  placeholder,
+  error,
+}) => {
   return (
-    <p>
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        name={id}
-        onChange={({ target }) => {
-          setValue(target.value);
-        }}
-        {...props}
-      ></input>
-    </p>
+    <>
+      <p>
+        <label htmlFor={id}>{label}</label>
+        <input
+          id={id}
+          name={id}
+          onChange={onChange}
+          placeholder={placeholder}
+          onBlur={onBlur}
+          type={type}
+          value={value}
+        ></input>
+      </p>
+      {error && <p>{error}</p>}
+    </>
   );
 };
 
