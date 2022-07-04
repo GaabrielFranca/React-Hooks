@@ -1,12 +1,11 @@
 import React from "react";
-import Form from "./Form";
 
+import RoutesMain from "./Routes/RoutesMain";
 const App = () => {
   return (
     <>
-      <Form></Form>
+      <RoutesMain></RoutesMain>
     </>
   );
 };
-
 export default App;
